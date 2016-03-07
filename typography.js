@@ -24,16 +24,14 @@ window.typography = function(els) {
   }
 
   function caps(el) {
-    var tel = document.createElement('textarea');
-    var string = el.innerHTML;
-    tel.innerHTML = string;
-    string = tel.value;
+    // Decode HTML entities
+    var str = _simpleDecode(el.innerHTML);
 
     // If the element is empty, return without any changes
-    if(!string) return;
+    if(!str) return;
 
     // Start by splitting the string into an array of words
-    var arr = string.split(' ');
+    var arr = str.split(' ');
 
     arr = arr.map(function(word){
       var isUpper = 0;
@@ -65,5 +63,12 @@ window.typography = function(els) {
 
     var frag = arr.join(' ');
     el.innerHTML = frag;
+  }
+
+  function _simpleDecode(str) {
+    // Prepare a textarea to decode HTML entities in
+    var el = document.createElement('textarea');
+    el.innerHTML = str;
+    return el.value;
   }
 }
