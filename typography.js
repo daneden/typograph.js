@@ -50,15 +50,13 @@ window.typography = function(els) {
         }
       });
 
+      // Make our word a string again
+      word = word.join('');
+
       // If the whole word is uppercase
-      if(isUpper == word.length) {
-        // Turn the word back into a string
-        word = word.join('');
+      if(isUpper === word.length) {
         // Wrap the word in a span
         word = `<span class='caps'>${word}</span>`;
-      } else {
-        // Otherwise, return the word intact
-        word = word.join('');
       }
 
       return word;
