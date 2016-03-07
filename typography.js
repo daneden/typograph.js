@@ -38,14 +38,13 @@ window.typography = function(els) {
       // Split the word into characters
       word = word.split('');
 
+      // If we're dealing with a single-character word (like "I"), return with no changes
       if(word.length <= 1) return word;
 
-      word.map(function(character){
-        // If it's not, check if it's an uppercase letter
-        if(character === character.toUpperCase()) {
-          // If it is, increment isUpper
-          isUpper++;
-        }
+      word.map(function(c){
+        // Check if each letter is uppercase (or numeric/punctuation)
+        // and increment the isUpper counter
+        if(c === c.toUpperCase()) isUpper++;
       });
 
       // Make our word a string again
@@ -58,7 +57,6 @@ window.typography = function(els) {
       }
 
       return word;
-
     });
 
     var frag = arr.join(' ');
