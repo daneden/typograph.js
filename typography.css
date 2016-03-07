@@ -1,0 +1,11 @@
+/*
+ * Typography.css
+ * ==============
+ *
+ * An example CSS file for typography.js's classes
+ *
+ */
+
+.caps {
+  font-feature-settings: "smcp" 1, "c2sc" 1;
+}
